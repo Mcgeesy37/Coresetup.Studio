@@ -50,30 +50,21 @@
   window.addEventListener("resize", onScroll);
 })();
 
-// Arbeiten: Projektvideo einsetzen, sobald die Datei im Repo liegt. Fehlt sie, bleibt der Hinweistext stehen.
+// Arbeiten: Projektvideos nur abspielen, solange sie im Bild sind.
 (function () {
-  var shots = document.querySelectorAll(".shot[data-video]");
-  Array.prototype.forEach.call(shots, function (shot) {
-    var v = document.createElement("video");
-    v.muted = true;
-    v.loop = true;
-    v.playsInline = true;
-    v.preload = "metadata";
-    v.addEventListener("loadedmetadata", function () {
-      shot.textContent = "";
-      shot.classList.add("has-video");
-      shot.appendChild(v);
-      if ("IntersectionObserver" in window) {
-        new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) v.play().catch(function () {});
-            else v.pause();
-          });
-        }, { threshold: 0.4 }).observe(shot);
+  var vids = document.querySelectorAll(".shot video");
+  if (!vids.length || !("IntersectionObserver" in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) {
+        v.muted = true;
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
       } else {
-        v.play().catch(function () {});
+        v.pause();
       }
     });
-    v.src = shot.dataset.video;
-  });
+  }, { threshold: 0.25 });
+  Array.prototype.forEach.call(vids, function (v) { io.observe(v); });
 })();
