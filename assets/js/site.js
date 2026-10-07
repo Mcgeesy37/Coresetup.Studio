@@ -59,7 +59,7 @@
     v.loop = true;
     v.playsInline = true;
     v.preload = "metadata";
-    v.addEventListener("loadeddata", function () {
+    v.addEventListener("loadedmetadata", function () {
       shot.textContent = "";
       shot.classList.add("has-video");
       shot.appendChild(v);
