@@ -38,7 +38,9 @@
 
   if (vid) {
     // Kleine Fassung fürs Handy, große für Desktop
-    vid.src = window.innerWidth < 820 ? vid.dataset.srcMobile : vid.dataset.src;
+    var mobile = window.innerWidth < 820;
+    if (mobile && vid.dataset.posterMobile) vid.poster = vid.dataset.posterMobile;
+    vid.src = mobile ? vid.dataset.srcMobile : vid.dataset.src;
     vid.addEventListener("loadedmetadata", onScroll);
     vid.load();
   }
@@ -46,4 +48,32 @@
   draw();
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
+})();
+
+// Arbeiten: Projektvideo einsetzen, sobald die Datei im Repo liegt. Fehlt sie, bleibt der Hinweistext stehen.
+(function () {
+  var shots = document.querySelectorAll(".shot[data-video]");
+  Array.prototype.forEach.call(shots, function (shot) {
+    var v = document.createElement("video");
+    v.muted = true;
+    v.loop = true;
+    v.playsInline = true;
+    v.preload = "metadata";
+    v.addEventListener("loadeddata", function () {
+      shot.textContent = "";
+      shot.classList.add("has-video");
+      shot.appendChild(v);
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) v.play().catch(function () {});
+            else v.pause();
+          });
+        }, { threshold: 0.4 }).observe(shot);
+      } else {
+        v.play().catch(function () {});
+      }
+    });
+    v.src = shot.dataset.video;
+  });
 })();
