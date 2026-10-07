@@ -1,0 +1,5 @@
+http://coresetup.studio/* https://coresetup.studio/:splat 301
+http://www.coresetup.studio/* https://coresetup.studio/:splat 301
+https://www.coresetup.studio/* https://coresetup.studio/:splat 301
+/generative-engine-optimierung.html /geo-optimierung.html 301
+/warum-websites-nicht-sicher.html /website-security-check.html 301

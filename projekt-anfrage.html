@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projekt Anfrage | CoreSetup Studio</title>
+<meta content="Starte dein Website Projekt in wenigen Sekunden." name="description"/>
+<link href="https://coresetup.studio/projekt-anfrage.html" rel="canonical"/>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-EC13WS43EB"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-EC13WS43EB');
+gtag('config', 'AW-17994894398');
+</script>
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#04070d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Syne:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="sub sub-web">
+
+<header class="nav">
+  <a class="brand" href="index.html">CoreSetup<i>.</i>Studio</a>
+  <nav aria-label="Hauptnavigation">
+    <a href="index.html#leistungen">Leistungen</a>
+    <a href="index.html#arbeiten">Arbeiten</a>
+    <a href="index.html#bewertungen">Bewertungen</a>
+    <a href="index.html#security">Security</a>
+    <a href="index.html#preise">Preise</a>
+    <a href="index.html#kontakt">Kontakt</a>
+  </nav>
+</header>
+
+<main class="legacy">
+<section class="hero section">
+<div class="wrap hero-wrap">
+<div>
+<div class="kicker">PROJEKT STARTEN</div>
+<h1 class="hero-title">
+        Starte dein Website Projekt
+      </h1>
+<p class="hero-sub">
+        Beantworte ein paar Fragen und erhalte sofort eine Einschätzung.
+      </p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap">
+<form action="https://formspree.io/f/xdawolnz" class="price-card" id="multiStepForm" method="POST">
+
+<input name="_redirect" type="hidden" value="https://coresetup.studio/thanks.html"/>
+<input name="_subject" type="hidden" value="Neue Projektanfrage CoreSetup"/>
+<div class="section-head">
+<h2>Projekt Details</h2>
+<p>Kurze Fragen – klare Einschätzung</p>
+</div>
+
+<div class="step active">
+<div class="form-grid">
+<div class="input-box full">
+<span>Welche Website brauchst du?</span>
+<select id="type" name="website_art">
+<option value="800">Unternehmensseite</option>
+<option value="600">Landingpage</option>
+<option value="1200">Online Shop</option>
+</select>
+</div>
+<div class="input-box full">
+<span>Ziel</span>
+<input name="ziel" placeholder="Mehr Kundenanfragen" type="text"/>
+</div>
+</div>
+<button class="btn primary full next" type="button">Weiter</button>
+</div>
+
+<div class="step">
+<div class="form-grid">
+<div class="input-box">
+<span>Branche</span>
+<input name="branche" type="text"/>
+</div>
+<div class="input-box">
+<span>Budget</span>
+<select id="budget" name="budget">
+<option value="0">500–1000€</option>
+<option value="300">1000–3000€</option>
+<option value="800">3000€+</option>
+</select>
+</div>
+<div class="input-box full">
+<span>Funktionen</span>
+<input name="funktionen" placeholder="WhatsApp, Buchung" type="text"/>
+</div>
+</div>
+<div style="display:flex; gap:10px;">
+<button class="btn ghost back" type="button">Zurück</button>
+<button class="btn primary next" type="button">Weiter</button>
+</div>
+</div>
+
+<div class="step">
+<h3 style="margin-bottom:10px;">Deine Einschätzung</h3>
+<div class="price-card highlight" style="margin-bottom:20px;">
+<strong id="price" style="font-size:28px;">800€ – 1200€</strong>
+<p class="note">Basierend auf deinen Angaben</p>
+</div>
+<div class="form-grid">
+<div class="input-box">
+<span>Name</span>
+<input name="name" required="" type="text"/>
+</div>
+<div class="input-box">
+<span>Email</span>
+<input name="email" required="" type="email"/>
+</div>
+<div class="input-box full">
+<span>Projekt Beschreibung</span>
+<textarea name="message"></textarea>
+</div>
+</div>
+<div style="display:flex; gap:10px;">
+<button class="btn ghost back" type="button">Zurück</button>
+<button class="btn primary" type="submit">
+            Projekt anfragen
+          </button>
+</div>
+</div>
+</form>
+</div>
+</section>
+
+<script>
+const steps = document.querySelectorAll(".step");
+let current = 0;
+
+function showStep(i){
+  steps.forEach((s,index)=>{
+    s.classList.toggle("active", index===i);
+  });
+}
+
+document.querySelectorAll(".next").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    current++;
+    updatePrice();
+    showStep(current);
+  });
+});
+
+document.querySelectorAll(".back").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    current--;
+    showStep(current);
+  });
+});
+
+function updatePrice(){
+  const type = document.getElementById("type").value;
+  const budget = document.getElementById("budget").value;
+  const base = parseInt(type) + parseInt(budget);
+
+  document.getElementById("price").innerText =
+    base + "€ – " + (base + 400) + "€";
+}
+
+showStep(0);
+
+/* FORM SUBMIT (JOTZIN / TRACKING SAFE) */
+const form = document.getElementById("multiStepForm");
+
+form.addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const data = new FormData(form);
+
+  const response = await fetch(form.action, {
+    method: form.method,
+    body: data,
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+
+  if(response.ok){
+
+    // Google Conversion
+    gtag('event','generate_lead',{
+      'event_category':'form',
+      'event_label':'projekt_anfrage'
+    });
+
+    window.location.href = "https://coresetup.studio/thanks.html";
+
+  } else {
+    alert("Fehler beim Senden.");
+  }
+});
+</script>
+<style>
+.step{display:none}
+.step.active{display:block}
+</style>
+
+<a class="wa-gold" href="https://wa.me/4917670683230?text=Hallo%20ich%20interessiere%20mich%20für%20eine%20Website" target="_blank">
+  Direkt schreiben
+</a>
+</main>
+
+<footer class="wrap foot">
+  <span>© CoreSetup Studio · Berlin</span>
+  <a class="badge" href="https://zerotrace37.com" target="_blank" rel="noopener">Security-Partner: ZeroTrace37</a>
+  <span><a href="index.html">Startseite</a> · <a href="projekt-anfrage.html">Projekt anfragen</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+</footer>
+
+</body>
+</html>

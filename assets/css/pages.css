@@ -1,0 +1,108 @@
+/* CoreSetup Studio – Unterseiten. Baut auf site.css auf und kleidet die bestehenden Inhalte ins neue Design. */
+
+/* Globus-Standbild hinter dem Seitenkopf, je nach Thema */
+body.sub{--hero:url(../media/hero-web.webp)}
+body.sub-seo{--hero:url(../media/hero-seo.webp)}
+body.sub-shield{--hero:url(../media/k5.webp)}
+
+.legacy{display:block}
+.legacy .wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.legacy .container{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.legacy .section{padding-block:clamp(48px,7vw,96px);border-top:1px solid var(--line)}
+.legacy > .section:first-child,
+.legacy > div:first-child > .section:first-child{
+  border-top:0;
+  padding-top:clamp(120px,16vw,190px);
+  background:linear-gradient(90deg,#04070df2 0%,#04070dc4 46%,#04070d66 100%),linear-gradient(0deg,#04070d 0%,transparent 30%),var(--hero) 72% 40%/cover no-repeat;
+}
+
+/* Text */
+.legacy h1,.legacy .hero-title{font-size:clamp(34px,5.4vw,68px);margin:14px 0 18px;max-width:18ch}
+.legacy h2{font-size:clamp(26px,3.4vw,42px);margin:0 0 14px}
+.legacy .hero h2{font-family:var(--body);font-weight:400;font-size:clamp(18px,1.8vw,22px);line-height:1.45;letter-spacing:0;color:var(--soft);max-width:52ch;margin:0 0 16px}
+.legacy h3{font-size:clamp(19px,1.8vw,23px);margin:0 0 10px;line-height:1.2}
+.legacy h4{font-family:var(--display);font-size:17px;margin:0 0 8px}
+.legacy p{margin:0 0 14px;color:var(--soft);max-width:70ch}
+.legacy li{color:var(--soft)}
+.legacy ul,.legacy ol{margin:0 0 14px;padding-left:20px;display:block}
+.legacy li{margin:6px 0}
+.legacy li::marker{color:var(--gold)}
+.legacy strong{color:var(--ink);font-weight:600}
+.legacy a{color:var(--gold2);text-underline-offset:3px}
+.legacy a:hover{color:var(--ink)}
+.legacy small,.legacy .fineprint,.legacy .note,.legacy .mini{font-size:14px;color:var(--mute)}
+.legacy .accent{color:var(--gold2)}
+.legacy img{display:block;max-width:100%;height:auto;border:1px solid var(--line)}
+.legacy table{width:100%;border-collapse:collapse;font-size:15px}
+.legacy th,.legacy td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.legacy th{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:400}
+
+.legacy .kicker,.legacy .pill,.legacy .badge,.legacy .tag{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:0;padding:0;background:none;border-radius:0}
+.legacy .hero-sub{font-size:clamp(16px,1.4vw,19px);max-width:56ch}
+.legacy .hero-wrap{display:block}
+.legacy .hero-cta{display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center;margin-top:26px}
+.legacy .hero-badges,.legacy .trustline{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;padding:0;list-style:none}
+.legacy .trust-item,.legacy .point{display:flex;gap:10px;align-items:baseline;color:var(--soft);font-size:15px;margin:6px 0}
+.legacy .dot,.legacy .p-dot{flex:none;width:8px;height:1px;background:var(--gold);transform:translateY(-4px)}
+.legacy .section-head{margin-bottom:34px}
+.legacy .section-head p{color:var(--mute)}
+
+/* Raster und Karten */
+.legacy .grid,.legacy .cards,.legacy .highlight-grid,.legacy .projects-grid,.legacy .google-reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:22px}
+.legacy .card,.legacy .price-card,.legacy .highlight-card,.legacy .review-card,.legacy .contact-box,.legacy .hosting-box,.legacy .hero-glass-card,.legacy .promise,.legacy .google-trust{background:var(--panel);border:1px solid var(--line);padding:26px;min-width:0}
+.legacy .grid .card,.legacy .cards .card{height:100%}
+.legacy .card > :last-child,.legacy .price-card > :last-child{margin-bottom:0}
+.legacy .card .card{background:transparent;border-width:1px 0 0;padding:18px 0 0}
+.legacy .price-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:10px}
+.legacy .price{font-family:var(--display);font-size:38px;color:var(--gold2);line-height:1}
+.legacy .stars{color:var(--gold);letter-spacing:4px}
+.legacy .contact-box,.legacy .hosting-box{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:28px}
+.legacy .glass-row{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-top:1px solid var(--line)}
+.legacy .glass-label{color:var(--mute);font-size:14px}
+.legacy .glass-value{color:var(--ink)}
+.legacy .project{position:relative;overflow:hidden;border:1px solid var(--line)}
+.legacy .project img{border:0;width:100%}
+.legacy .project-overlay{padding:14px 16px;background:var(--panel)}
+
+/* Buttons */
+.legacy .btn,.legacy .button,.legacy button.btn{display:inline-block;padding:14px 24px;border:1px solid var(--gold);color:var(--gold2);background:transparent;text-decoration:none;font:600 16px/1.2 var(--body);border-radius:2px;cursor:pointer}
+.legacy .btn:hover{background:rgba(217,178,95,.12);color:var(--gold2)}
+.legacy .btn.primary,.legacy .btn.wa-gold{background:var(--gold);color:#04070d}
+.legacy .btn.primary:hover,.legacy .btn.wa-gold:hover{background:var(--gold2);color:#04070d}
+.legacy .btn.full,.legacy .full{grid-column:1/-1}
+.legacy .btn.full{width:100%;text-align:center}
+.legacy .btn:focus-visible,.legacy button:focus-visible,.legacy input:focus-visible,.legacy select:focus-visible,.legacy textarea:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+
+/* Formulare */
+.legacy form{min-width:0}
+.legacy .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:18px}
+.legacy .input-box{display:grid;gap:6px;min-width:0}
+.legacy .input-box span,.legacy label{font-size:14px;color:var(--mute)}
+.legacy input[type=text],.legacy input[type=email],.legacy input[type=url],.legacy input[type=tel],.legacy input[type=number],.legacy input:not([type]),.legacy select,.legacy textarea{width:100%;padding:13px 14px;background:#060b13;color:var(--ink);border:1px solid var(--line);border-radius:2px;font:inherit}
+.legacy textarea{min-height:130px;resize:vertical}
+.legacy .step{display:none}
+.legacy .step.active{display:block}
+.legacy .contact-form{display:grid;gap:14px}
+
+/* Dialogfenster */
+.legacy .modal{position:fixed;inset:0;z-index:50;display:none;place-items:center;padding:16px}
+.legacy .modal.active,.legacy .modal.open,.legacy .modal[aria-hidden="false"]{display:grid}
+.legacy .modal-backdrop{position:absolute;inset:0;background:#04070dd9}
+.legacy .modal-card{position:relative;max-width:900px;width:100%;max-height:90vh;overflow:auto;background:var(--panel);border:1px solid var(--line);padding:22px}
+.legacy .modal-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px}
+.legacy .modal-close{background:none;border:1px solid var(--line);color:var(--ink);padding:6px 12px;cursor:pointer}
+
+@media(max-width:820px){
+  .legacy .form-grid{grid-template-columns:minmax(0,1fr)}
+  .legacy > .section:first-child,
+  .legacy > div:first-child > .section:first-child{background:linear-gradient(0deg,#04070d 0%,#04070de0 55%,#04070d99 100%),var(--hero) 60% 30%/cover no-repeat}
+}
+
+/* Namensgleiche Klassen der Startseite neutralisieren */
+.legacy .price{display:block;grid-template-columns:none}
+.legacy .btn{margin:0}
+.legacy .btn.ghost{border:1px solid var(--gold);padding:14px 24px}
+
+/* WhatsApp-Kurzlink unten rechts */
+.legacy a.wa-gold:not(.btn){position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;padding:12px 18px;background:var(--gold);color:#04070d;font-weight:600;text-decoration:none;border-radius:2px;box-shadow:0 6px 24px #000a}
+.legacy a.wa-gold:not(.btn):hover{background:var(--gold2);color:#04070d}

@@ -93,6 +93,22 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:.72em;width:8px;heig
 .contact .lead{margin-bottom:0}
 .mail{font-family:var(--display);font-size:clamp(17px,2.5vw,34px);color:var(--gold2);white-space:nowrap;text-decoration:none}
 
+.cform{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:48px;align-items:end}
+.cform label{display:grid;gap:6px;font-size:14px;color:var(--mute);min-width:0}
+.cform .wide{grid-column:1/-1}
+.cform input,.cform textarea{width:100%;padding:13px 14px;background:#060b13;color:var(--ink);border:1px solid var(--line);border-radius:2px;font:inherit}
+.cform textarea{resize:vertical}
+.cform input:focus-visible,.cform textarea:focus-visible,.cform button:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+.cform button{font:600 16px/1.2 var(--body);cursor:pointer;justify-self:start}
+.cform .ghost{justify-self:start;align-self:center;margin-left:0}
+
+.links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;margin-top:36px}
+.links div{display:grid;gap:8px;align-content:start;min-width:0}
+.links h3{font-size:17px;margin:0 0 6px;color:var(--gold2)}
+.links h3:not(:first-child){margin-top:18px}
+.links a{color:var(--soft);text-decoration:none;font-size:15px}
+.links a:hover{color:var(--gold2)}
+
 .foot{border-top:1px solid var(--line);padding-block:28px;display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;font-size:14px;color:var(--mute)}
 .foot a{text-decoration:none}
 .foot a:hover{color:var(--gold2)}
@@ -100,7 +116,8 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:.72em;width:8px;heig
 
 @media(max-width:820px){
   .nav nav{display:none}
-  .svc,.works,.price,.rev,.contact{grid-template-columns:minmax(0,1fr)}
+  .svc,.works,.price,.rev,.contact,.cform{grid-template-columns:minmax(0,1fr)}
+  .links{grid-template-columns:repeat(2,minmax(0,1fr))}
   .rev{gap:28px}
   .mail{font-size:min(6vw,30px)}
   .stage video{object-position:50% 50%}
