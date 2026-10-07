@@ -115,10 +115,13 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:.72em;width:8px;heig
 .badge{border:1px solid rgba(111,214,230,.4);color:var(--cy);padding:4px 10px;border-radius:2px;text-decoration:none}
 
 @media(max-width:820px){
-  .nav nav{display:none}
+  .nav{flex-wrap:wrap;row-gap:10px;padding-block:14px 10px;background:linear-gradient(#04070df2 70%,transparent)}
+  .nav nav{flex:0 0 100%;gap:20px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;padding-bottom:6px}
+  .nav nav::-webkit-scrollbar{display:none}
   .svc,.works,.price,.rev,.contact,.cform{grid-template-columns:minmax(0,1fr)}
   .links{grid-template-columns:repeat(2,minmax(0,1fr))}
   .rev{gap:28px}
+  .meter span:last-child{display:none}
   .mail{font-size:min(6vw,30px)}
   .stage video{object-position:50% 50%}
   .stage::after{background:linear-gradient(0deg,#04070d 0%,#04070dd9 42%,#04070d33 72%,transparent)}
