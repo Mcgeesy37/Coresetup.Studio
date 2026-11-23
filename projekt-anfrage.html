@@ -69,9 +69,9 @@ gtag('config', 'AW-17994894398');
 <div class="input-box full">
 <span>Welche Website brauchst du?</span>
 <select id="type" name="website_art">
-<option value="800">Unternehmensseite</option>
-<option value="600">Landingpage</option>
-<option value="1200">Online Shop</option>
+<option value="Unternehmensseite" data-est="Business · 1.999 €">Unternehmensseite</option>
+<option value="Landingpage" data-est="Starter · 349 €">Landingpage</option>
+<option value="Online Shop" data-est="Individuelles Angebot">Online Shop</option>
 </select>
 </div>
 <div class="input-box full">
@@ -91,9 +91,9 @@ gtag('config', 'AW-17994894398');
 <div class="input-box">
 <span>Budget</span>
 <select id="budget" name="budget">
-<option value="0">500–1000€</option>
-<option value="300">1000–3000€</option>
-<option value="800">3000€+</option>
+<option value="bis 1.000 €">bis 1.000 €</option>
+<option value="1.000 bis 3.000 €">1.000 bis 3.000 €</option>
+<option value="über 3.000 €">über 3.000 €</option>
 </select>
 </div>
 <div class="input-box full">
@@ -110,7 +110,7 @@ gtag('config', 'AW-17994894398');
 <div class="step">
 <h3 style="margin-bottom:10px;">Deine Einschätzung</h3>
 <div class="price-card highlight" style="margin-bottom:20px;">
-<strong id="price" style="font-size:28px;">800€ – 1200€</strong>
+<strong id="price" style="font-size:28px;">Business · 1.999 €</strong>
 <p class="note">Basierend auf deinen Angaben</p>
 </div>
 <div class="form-grid">
@@ -164,12 +164,8 @@ document.querySelectorAll(".back").forEach(btn=>{
 });
 
 function updatePrice(){
-  const type = document.getElementById("type").value;
-  const budget = document.getElementById("budget").value;
-  const base = parseInt(type) + parseInt(budget);
-
-  document.getElementById("price").innerText =
-    base + "€ – " + (base + 400) + "€";
+  const opt = document.getElementById("type").selectedOptions[0];
+  document.getElementById("price").innerText = opt.dataset.est || "";
 }
 
 showStep(0);
